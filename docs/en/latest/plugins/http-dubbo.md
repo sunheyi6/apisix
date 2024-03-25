@@ -6,7 +6,7 @@ keywords:
   - Plugin
   - Http Dubbo
   - http-dubbo
-description: 本文介绍了关于 Apache APISIX `http-dubbo` 插件的基本信息及使用方法。
+description: This article provides an overview and usage instructions for the Apache APISIX http-dubbo plugin.
 ---
 
 <!--
@@ -28,16 +28,9 @@ description: 本文介绍了关于 Apache APISIX `http-dubbo` 插件的基本信
 #
 -->
 
-## 描述
-
-`http-dubbo` htttp-dubbo 插件提供http 协议转dubbo[**Dubbo**](https://cn.dubbo.apache.org/zh-cn/) 协议,并使用json作为默认的序列化方式
-## 属性
-
-
-
 ## Description
 
-The `htttp-dubbo` Plugin allows you to proxy HTTP requests to [Apache Dubbo](https://dubbo.apache.org/en/index.html).
+The `http-dubbo` plugin enables HTTP to Dubbo protocol conversion in [**Dubbo**](https://cn.dubbo.apache.org/en/) and uses JSON as the default serialization method.
 
 :::info IMPORTANT
 
@@ -47,17 +40,17 @@ If you are using OpenResty, you need to build it with Dubbo support. See [How do
 
 ## Runtime Attributes
 
-| Name                     | Type    | Required | Default    | 有效值       | 描述                             |
-|--------------------------|---------| ----------- |--------| ------------ |--------------------------------|
-| service_name             | string  | True  |        |              | Dubbo provider service name    |
-| service_version          | string  | True    |        |              | Dubbo provider service version |
-| method                   | string  | False    |     The path of the URI   |     | Dubbo provider service method  |
-| params_type_desc         | string  | False    |  |     | dubbo 服务方法                     |
-| serialized               | boolean | False    | false |  true/false	   | 是否进行序列化                        |
-| serialization_header_key | string  | False    |  |     | 序列化头部                          |
-| connect_timeout          | number  | False    | 6000   |     | 连接超时时间（毫秒）                     |
-| send_timeout             | number  | False    | 6000 |     | 发送超时时间（毫秒）                     |
-| read_timeout             | number  | False    | 6000 |     | 读取超时时间（毫秒）                     |
+| Name                     | Type    | Required | Default            | Description                                |
+|--------------------------|---------| ---------|--------------------|--------------------------------------------|
+| service_name             | string  | True  |                    | Dubbo provider service name                |
+| service_version          | string  | True    |                    | Dubbo provider service version             |
+| method                   | string  | False    | The path of the URI | Dubbo provider service method              |
+| params_type_desc         | string  | False    |                    | Dubbo service params                       |
+| serialized               | boolean | False    | false              | true/false	                                |
+| serialization_header_key | string  | False    |                    |                                            |
+| connect_timeout          | number  | False    | 6000               | Connection timeout duration (milliseconds) |
+| send_timeout             | number  | False    | 6000               | Send timeout duration (milliseconds)       |
+| read_timeout             | number  | False    | 6000               | Read timeout duration (milliseconds)       |
 
 ## Enable Plugin
 
