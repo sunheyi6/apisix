@@ -54,12 +54,12 @@ If you are using OpenResty, you need to build it with Dubbo support. See [How do
 
 ## Enable Plugin
 
-To enable the `htttp-dubbo` Plugin, you have to add it in your configuration file (`conf/config.yaml`):
+To enable the `http-dubbo` Plugin, you have to add it in your configuration file (`conf/config.yaml`):
 
 ```yaml title="conf/config.yaml"
 plugins:
   - ...
-  - htttp-dubbo
+  - http-dubbo
 ```
 
 Now, when APISIX is reloaded, you can add it to a specific Route as shown below:
@@ -79,7 +79,7 @@ curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335f1
         "/hello"
     ],
     "plugins": {
-        "htttp-dubbo": {
+        "http-dubbo": {
             "service_name": "org.apache.dubbo.sample.tengine.DemoService",
             "service_version": "0.0.0",
             "method": "tengineDubbo"
@@ -120,7 +120,7 @@ body of the message
 
 ## Delete Plugin
 
-To remove the `htttp-dubbo` Plugin, you can delete the corresponding JSON configuration from the Plugin configuration. APISIX will automatically reload and you do not have to restart for this to take effect.
+To remove the `http-dubbo` Plugin, you can delete the corresponding JSON configuration from the Plugin configuration. APISIX will automatically reload and you do not have to restart for this to take effect.
 
 ```shell
 curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
@@ -136,9 +136,9 @@ curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335f1
 }'
 ```
 
-To completely disable the `htttp-dubbo` Plugin, you can remove it from your configuration file (`conf/config.yaml`):
+To completely disable the `http-dubbo` Plugin, you can remove it from your configuration file (`conf/config.yaml`):
 
 ```yaml title="conf/config.yaml"
 plugins:
-  # - htttp-dubbo
+  # - http-dubbo
 ```

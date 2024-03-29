@@ -30,7 +30,7 @@ description: 本文介绍了关于 Apache APISIX `http-dubbo` 插件的基本信
 
 ## 描述
 
-`http-dubbo` htttp-dubbo 插件提供http 协议转dubbo[**Dubbo**](https://cn.dubbo.apache.org/zh-cn/) 协议,并使用json作为默认的序列化方式
+`http-dubbo` http-dubbo 插件提供http 协议转dubbo[**Dubbo**](https://cn.dubbo.apache.org/zh-cn/) 协议,并使用json作为默认的序列化方式
 ## 属性
 
 | 名称       | 类型 | 必选项 | 默认值    | 有效值       | 描述                                                        |
@@ -58,7 +58,7 @@ plugins:
 
 然后重载 `APISIX`。
 
-这里有个例子，在指定的路由中启用 `htttp-dubbo` 插件：
+这里有个例子，在指定的路由中启用 `http-dubbo` 插件：
 
 ```shell
 curl http://127.0.0.1:9180/apisix/admin/upstreams/1  -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
@@ -75,7 +75,7 @@ curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335f1
         "/hello"
     ],
     "plugins": {
-        "htttp-dubbo": {
+        "http-dubbo": {
             "service_name": "org.apache.dubbo.sample.tengine.DemoService",
             "service_version": "0.0.0",
             "method": "tengineDubbo"
@@ -118,7 +118,7 @@ blahblah # "body" will be the body
 
 ## 删除插件
 
-当你想在某个路由或服务中禁用 `htttp-dubbo` 插件，非常简单，你可以直接删除插件配置中的 `json` 配置，不需要重启服务就能立即生效：
+当你想在某个路由或服务中禁用 `http-dubbo` 插件，非常简单，你可以直接删除插件配置中的 `json` 配置，不需要重启服务就能立即生效：
 
 ```shell
 $ curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
@@ -134,15 +134,15 @@ $ curl http://127.0.0.1:9180/apisix/admin/routes/1  -H 'X-API-KEY: edd1c9f034335
 }'
 ```
 
-现在 `htttp-dubbo` 插件就已经被禁用了。此方法同样适用于其他插件。
+现在 `http-dubbo` 插件就已经被禁用了。此方法同样适用于其他插件。
 
-如果你想彻底禁用 `htttp-dubbo` 插件，
+如果你想彻底禁用 `http-dubbo` 插件，
 你需要在 `config.yaml` 中注释掉以下内容：
 
 ```yaml
 plugins:
   - ... # plugin you need
-  #- htttp-dubbo
+  #- http-dubbo
 ```
 
 然后重新加载 `APISIX`。
